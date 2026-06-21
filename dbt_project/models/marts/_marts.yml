@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: wildlife_by_park
+    description: "Biodiversity summary per national park — observation counts by species category and at-risk tallies."
+    columns:
+      - name: park_name
+        description: "Full name of the national park."
+        tests:
+          - not_null
+          - unique
+      - name: park_code
+        description: "Short code identifying the park (e.g. yell for Yellowstone)."
+      - name: state
+        description: "US state abbreviation where the park is located."
+      - name: established_year
+        description: "Year the park was established by Congress."
+      - name: area_km2
+        description: "Total park area in square kilometers."
+      - name: total_observations
+        description: "Total species observations recorded across all categories in this park."
+      - name: mammal_observations
+        description: "Total mammal observations in this park."
+      - name: bird_observations
+        description: "Total bird observations in this park."
+      - name: fish_observations
+        description: "Total fish observations in this park."
+      - name: amphibian_observations
+        description: "Total amphibian observations in this park."
+      - name: reptile_observations
+        description: "Total reptile observations in this park."
+      - name: at_risk_category_count
+        description: "Number of distinct wildlife categories with at-risk species (Endangered, Threatened, or In Recovery)."
+
+  - name: conservation_summary
+    description: "Aggregate statistics per conservation status — species counts and total observations broken down by animal category."
+    columns:
+      - name: conservation_status
+        description: "Conservation status label (e.g. Endangered, Least Concern)."
+        tests:
+          - not_null
+          - unique
+      - name: description
+        description: "Plain-English explanation of what this status means."
+      - name: iucn_equivalent
+        description: "Equivalent IUCN Red List category code."
+      - name: is_at_risk
+        description: "True if this status indicates the species faces a meaningful risk of extinction."
+      - name: species_count
+        description: "Number of distinct species with this conservation status."
+      - name: mammal_count
+        description: "Number of mammal species with this status."
+      - name: bird_count
+        description: "Number of bird species with this status."
+      - name: total_observations
+        description: "Total observations across all parks for species in this status."
+
+  - name: species_spotlight
+    description: "Most-observed wildlife species (plants excluded) with conservation status and park coverage."
+    columns:
+      - name: scientific_name
+        description: "Binomial scientific name of the species."
+        tests:
+          - not_null
+          - unique
+      - name: common_names
+        description: "Common name or names for the species."
+      - name: category
+        description: "Taxonomic category (Mammal, Bird, Fish, Amphibian, Reptile)."
+      - name: conservation_status
+        description: "Current conservation status of the species."
+      - name: is_at_risk
+        description: "True if the species is Endangered, Threatened, or In Recovery."
+      - name: parks_present
+        description: "Number of the 4 parks where this species was observed."
+      - name: total_observations
+        description: "Total observations of this species summed across all parks."
