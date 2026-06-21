@@ -1,0 +1,12 @@
+{
+  "name": "dbt-llm-analytics",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pip install dbt-duckdb 'mcp[cli]' duckdb rich",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "innoverio.vscode-dbt-power-user"
+      ]
+    }
+  }
+}
