@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: dbt_llm_analytics
+    tables:
+      - name: species_info
+      - name: observations
+      - name: parks
+      - name: conservation_categories
+
+models:
+  - name: stg_species
+    description: "One row per species with cleaned conservation status and at-risk flag."
+    columns:
+      - name: scientific_name
+        tests:
+          - not_null
+          - unique
+      - name: category
+        tests:
+          - not_null
+      - name: conservation_status
+        tests:
+          - not_null
+
+  - name: stg_observations
+    description: "One row per species-park pair with observation count."
+    columns:
+      - name: scientific_name
+        tests:
+          - not_null
+      - name: park_name
+        tests:
+          - not_null
+      - name: observations
+        tests:
+          - not_null
+
+  - name: stg_parks
+    description: "One row per national park with location and metadata."
+    columns:
+      - name: park_code
+        tests:
+          - not_null
+          - unique
+      - name: park_name
+        tests:
+          - not_null
+
+  - name: stg_conservation_categories
+    description: "Lookup table mapping conservation status labels to descriptions and risk flags."
+    columns:
+      - name: status
+        tests:
+          - not_null
+          - unique
