@@ -1,0 +1,6 @@
+status,description,iucn_equivalent,is_at_risk
+Least Concern,No immediate threats to survival,LC,false
+Species of Concern,Being monitored for possible decline,NT,false
+Endangered,At very high risk of extinction in the wild,EN,true
+Threatened,Likely to become endangered without protection,VU,true
+In Recovery,Previously endangered; populations recovering,Delisted,true
