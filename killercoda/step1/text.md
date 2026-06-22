@@ -1,6 +1,12 @@
 # Step 1: Explore the project
 
-The repo is cloned at `/root/lab`. Let's see what we're working with.
+First, wait for the environment to finish setting up. Run this and wait for "Ready!":
+
+```
+until [ -f /tmp/lab-ready ]; do echo "Setting up..."; sleep 3; done && echo "Ready!"
+```
+
+Once it's ready, look at the repo:
 
 ```
 ls /root/lab
@@ -27,4 +33,4 @@ cat /root/lab/dbt_project/models/staging/stg_species.sql
 
 Notice the `GROUP BY scientific_name` — the raw NPS data has duplicate species rows with different spellings of common names. The staging model deduplicates them. That's a real data quality problem this pipeline solves.
 
-Click **Check** when you've run all three commands.
+Click **Check** when you've run the wait command and seen the project structure.
