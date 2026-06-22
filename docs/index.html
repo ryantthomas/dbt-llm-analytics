@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dbt + LLM Analytics Lab</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: #1e2433;
+      border: 1px solid #2d3748;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #f8fafc;
+      margin-bottom: 20px;
+    }
+
+    h1 span { color: #f97316; }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #f97316;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.15s;
+    }
+
+    .btn-primary:hover { background: #ea6c0a; }
+
+    .btn-secondary {
+      background: transparent;
+      color: #94a3b8;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1px solid #2d3748;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .btn-secondary:hover { border-color: #94a3b8; color: #e2e8f0; }
+
+    .section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 24px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #1e2433;
+      border: 1px solid #2d3748;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .step-num {
+      background: #f97316;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f8fafc;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    code {
+      background: #0f1117;
+      border: 1px solid #2d3748;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.85em;
+      color: #f97316;
+    }
+
+    .data-note {
+      background: #1e2433;
+      border: 1px solid #2d3748;
+      border-left: 3px solid #f97316;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .data-note a { color: #f97316; text-decoration: none; }
+    .data-note a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 0.85rem;
+      color: #4a5568;
+      border-top: 1px solid #1e2433;
+    }
+
+    footer a { color: #f97316; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="badge-row">
+      <span class="pill">dbt</span>
+      <span class="pill">DuckDB</span>
+      <span class="pill">MCP</span>
+      <span class="pill">Claude</span>
+      <span class="pill">Free</span>
+    </div>
+
+    <h1>Build a <span>data pipeline</span>.<br>Give it an AI interface.</h1>
+
+    <p class="subtitle">
+      A hands-on lab. You write real dbt models on National Park Service data,
+      run 18 automated tests, then connect Claude so anyone can query it in plain English.
+    </p>
+
+    <div class="cta-group">
+      <a class="btn-primary" href="https://killercoda.com/ryantthomas/scenario/dbt-llm-analytics" target="_blank">
+        Start the Lab &rarr;
+      </a>
+      <a class="btn-secondary" href="https://github.com/ryantthomas/dbt-llm-analytics" target="_blank">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What you'll build</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Load and clean real data</h3>
+          <p>Seed 5,824 species and 23,296 observations from four national parks into DuckDB. Write staging models that deduplicate and validate the source data.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Build analysis-ready tables</h3>
+          <p>Write mart models that answer real questions — which park has the most wildlife activity, how many endangered species exist, which animals are most observed.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Test and document everything</h3>
+          <p>Run 18 <code>not_null</code> and <code>unique</code> tests with <code>dbt test</code>. Generate a schema catalog that documents every column.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Connect Claude to the database</h3>
+          <p>Wire up a read-only MCP server so Claude can list tables, read schemas, and run SELECT queries. Ask questions in plain English, get real answers back.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="data-note">
+      Data: <a href="https://www.kaggle.com/datasets/nationalparkservice/park-biodiversity" target="_blank">NPS Biodiversity Dataset</a>
+      — Bryce, Great Smoky Mountains, Yellowstone, and Yosemite.
+      Real numbers: Yellowstone has 1,443,562 recorded observations.
+    </div>
+  </div>
+
+  <footer>
+    Built by <a href="https://github.com/ryantthomas">Ryan Thomas</a>.
+    If this lab helped you, <a href="https://ko-fi.com/" target="_blank">buy me a coffee</a>.
+  </footer>
+
+</body>
+</html>
