@@ -8,12 +8,12 @@
       "text": "intro.md"
     },
     "steps": [
-      { "title": "Explore the project", "text": "step1/text.md", "verify": { "exec": "step1/verify.sh" } },
-      { "title": "Seed the raw data", "text": "step2/text.md", "verify": { "exec": "step2/verify.sh" } },
-      { "title": "Build staging models", "text": "step3/text.md", "verify": { "exec": "step3/verify.sh" } },
-      { "title": "Build mart models", "text": "step4/text.md", "verify": { "exec": "step4/verify.sh" } },
-      { "title": "Run tests", "text": "step5/text.md", "verify": { "exec": "step5/verify.sh" } },
-      { "title": "Connect Claude", "text": "step6/text.md", "verify": { "exec": "step6/verify.sh" } }
+      { "title": "Explore the project", "text": "step1/text.md", "verify": "step1/verify.sh" },
+      { "title": "Seed the raw data", "text": "step2/text.md", "verify": "step2/verify.sh" },
+      { "title": "Build staging models", "text": "step3/text.md", "verify": "step3/verify.sh" },
+      { "title": "Build mart models", "text": "step4/text.md", "verify": "step4/verify.sh" },
+      { "title": "Run tests", "text": "step5/text.md", "verify": "step5/verify.sh" },
+      { "title": "Connect Claude", "text": "step6/text.md", "verify": "step6/verify.sh" }
     ],
     "finish": {
       "text": "finish.md"
