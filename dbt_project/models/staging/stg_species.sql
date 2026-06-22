@@ -1,10 +1,25 @@
+-- The raw NPS data has multiple rows for some species (same scientific_name,
+-- different common name spellings). We dedupe to one row per species here,
+-- combining the common names and keeping a real conservation status when one exists.
+
+with source as (
+    select * from {{ ref('species_info') }}
+),
+
+deduped as (
+    select
+        scientific_name,
+        any_value(category) as category,
+        string_agg(distinct common_names, '; ') as common_names,
+        coalesce(max(nullif(conservation_status, '')), 'Least Concern') as conservation_status
+    from source
+    group by scientific_name
+)
+
 select
     scientific_name,
     category,
     common_names,
-    case
-        when conservation_status = '' or conservation_status is null then 'Least Concern'
-        else conservation_status
-    end as conservation_status,
+    conservation_status,
     conservation_status in ('Endangered', 'Threatened', 'In Recovery') as is_at_risk
-from {{ ref('species_info') }}
+from deduped
