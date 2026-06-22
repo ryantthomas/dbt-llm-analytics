@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "nps-analytics": {
+      "command": "python",
+      "args": ["/ABSOLUTE/PATH/TO/dbt-llm-analytics/llm_query/mcp_server.py"]
+    }
+  }
+}

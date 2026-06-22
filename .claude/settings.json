@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "nps-analytics": {
+      "command": "python",
+      "args": ["llm_query/mcp_server.py"]
+    }
+  }
+}
