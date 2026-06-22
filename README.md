@@ -2,7 +2,7 @@
 
 Learn dbt on real data, then give it a natural-language interface with Claude.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ryantthomas/dbt-llm-analytics)
+[Landing page](https://ryantthomas.github.io/dbt-llm-analytics/) &nbsp;|&nbsp; [Try the Lab](https://killercoda.com/ryantthomas/scenario/dbt-llm-analytics)
 
 This is a hands-on tutorial. You build a tested dbt project on real National Park Service biodiversity data (5,824 species, 23,296 observations across 4 national parks), then connect it to Claude so you can ask questions in plain English and get real answers back.
 
@@ -22,18 +22,13 @@ Then an MCP server that lets Claude query it safely:
 
 Claude can read everything and change nothing — queries are locked to read-only `SELECT`s.
 
-## Quickstart
+## Try the lab
 
-### Codespaces (nothing to install)
+The interactive lab runs in your browser — no local setup required:
 
-Click the badge above. Wait for the environment to build, then:
+[Start the Lab on Killercoda](https://killercoda.com/ryantthomas/scenario/dbt-llm-analytics)
 
-```bash
-cd dbt_project
-dbt build --profiles-dir .
-```
-
-### Local
+## Run it locally
 
 Requires Python 3.11+.
 
